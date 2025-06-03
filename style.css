@@ -18,6 +18,10 @@
     --shadow-color-3: #93261A;
     --color-1: #FFFFFF;
     --color-2: #434A59;
+    --color-3: #FFFFFF;
+    --hover-1: #FFFFFE;
+    --hover-2: #A2B2E1;
+    --hover-3: #F96B5B;
 }
 
 .theme-1{
@@ -32,39 +36,61 @@
     --shadow-color-3: #93261A;
     --color-1: #FFFFFF;
     --color-2: #434A59;
+    --color-3: #FFFFFF;
+    --color-4: #FFFFFF;;
+    --hover-1: #FFFFFE;
+    --hover-2: #A2B2E1;
+    --hover-3: #F96B5B;
+    --history-color: #848383;
 }
 
 .theme-2{
     --bg-color-1: #E6E6E6;
     --bg-color-2: #EEEEEE;
-    --bg-color-3: #242D44;
-    --bg-btn-1: #EAE3DC;
-    --bg-btn-2: #647198;
-    --bg-btn-3: #D03F2F;
-    --shadow-color-1: #B3A497;
-    --shadow-color-2: #414E73;
-    --shadow-color-3: #93261A;
-    --color-1: #FFFFFF;
+    --bg-color-3: #b5aaaa;
+    --bg-btn-1: #E5E4E1;
+    --bg-btn-2: #378187;
+    --bg-btn-3: #C85402;
+    --shadow-color-1: #A79E91;
+    --shadow-color-2: #1B6066;
+    --shadow-color-3: #873901;
+    --color-1: #36362C;
     --color-2: #434A59;
+    --color-3: #FFFFFF;
+    --color-4: #FFFFFF;
+    --hover-1: #FFFFFF;
+    --hover-2: #62B5BC;
+    --hover-3: #FF8A38;
+    --history-color: #8b8b8b;
 }
 
 .theme-3{
-    --bg-color-1: #3A4663;
-    --bg-color-2: #181F33;
-    --bg-color-3: #242D44;
-    --bg-btn-1: #EAE3DC;
-    --bg-btn-2: #647198;
-    --bg-btn-3: #D03F2F;
-    --shadow-color-1: #B3A497;
-    --shadow-color-2: #414E73;
-    --shadow-color-3: #93261A;
-    --color-1: #FFFFFF;
-    --color-2: #434A59;
+    --bg-color-1: #17062A;
+    --bg-color-2: #1E0936;
+    --bg-color-3: #1E0936;
+    --bg-btn-1: #331C4D;
+    --bg-btn-2: #56077C;
+    --bg-btn-3: #00DED0;
+    --shadow-color-1: #881C9E;
+    --shadow-color-2: #BE15F4;
+    --shadow-color-3: #6CF9F1;
+    --color-1: #FFE53D;
+    --color-2: #FFE53D;
+    --color-3: #FFFFFF;
+    --color-4: #1A2327;
+    --hover-1: #6C34AC;
+    --hover-2: #8631AF;
+    --hover-3: #93FFF8;
+    --history-color: #f5efd0;
+}
+
+.body{
+    transition: background-color 0.3s, color 0.3s;
 }
 
 .banner{
     width: 100%;
-    min-height: 100vh;
+    height: 100vh;
     background-color: var(--bg-color-1);
     display: flex;
     align-items: center;
@@ -72,8 +98,13 @@
 }
 
 .calculator{
+    padding-top: 20px;
     width: 540px;
+    height: 706px;
     padding: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .top{
@@ -100,7 +131,7 @@
 }
 
 .label{
-    margin-right: 1rem;
+    margin-right: 12px;
     text-transform: uppercase;
     font-weight: 700;
     font-size: 12px;
@@ -114,6 +145,7 @@
     background-color: var(--bg-color-3);
     border-radius: 13px;
     position: relative;
+    cursor: pointer;
 }
 
 .position{
@@ -137,6 +169,7 @@
     border-radius: 50%;
     top: 5px;
     transition: left 0.3s;
+    cursor: pointer;
 }
 
 .pos-1{
@@ -160,6 +193,24 @@
     border-radius: 10px;
 }
 
+.screen .history-value{
+    text-align: right;
+    color: var(--history-color);
+    margin: 0 20px;
+    padding-top: 20px;
+    font-size: 28px;
+}
+
+.screen .output-value{
+    color: var(--color-1);
+    text-align: right;
+    font-weight: 700;
+    font-size: 56px;
+    line-height: 100%;
+    letter-spacing: -0.93px;
+    margin: 10px 20px;
+}
+
 .keys{
     display: grid;
     background-color: var(--bg-color-3);
@@ -169,6 +220,7 @@
     place-items: center;
     border: none;
     border-radius: 10px;
+    width: 90%;
 }
 
 .keys .btn{
@@ -184,30 +236,51 @@
     border: none;
 }
 
-.btn.spec{
+.keys .btn:hover{
+    background-color: var(--hover-1);
+    cursor: pointer;
+}
+
+/*.btn.spec{
     grid-column: span 2;
     width: 227px;
-}
+}*/
 
 .keys > :nth-child(4){
     background-color: var(--bg-btn-2);
-    color: var(--color-1);
+    color: var(--color-3);
     box-shadow: 0px 4px 0 0 var(--shadow-color-2);
+}
+
+.keys > :nth-child(4):hover{
+    background-color: var(--hover-2);
 }
 
 .keys > :nth-child(17){
     background-color: var(--bg-btn-2);
-    color: var(--color-1);
+    color: var(--color-3);
     box-shadow: 0px 4px 0 0 var(--shadow-color-2);
+
+    grid-column: span 2;
+    width: 227px;
+}
+
+.keys > :nth-child(17):hover{
+    background-color: var(--hover-2);
 }
 
 .keys > :nth-child(18){
     background-color: var(--bg-btn-3);
-    color: var(--color-1);
+    color: var(--color-4);
     box-shadow: 0px 4px 0 0 var(--shadow-color-3);
+
+    grid-column: span 2;
+    width: 227px;
 }
 
-
+.keys > :nth-child(18):hover{
+    background-color: var(--hover-3);
+}
 
 
 
@@ -222,9 +295,54 @@
         margin: auto;
     }
 
+    .screen .output-value{
+        font-size: 40px;
+    }
+
+    .screen .history-value{
+        font-size: 20px;
+    }
+
     .keys{
+
         padding-left: 10px;
         padding-right: 10px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        gap: 15px;
+        width: 95%;
+    }
+
+    .keys .btn{
+        width: 60px;
+        height: 64px;
+        font-size: 20px;
+        border-radius: 5px;
+    }
+
+    /*.btn.spec{
+        width: 135px;
+    }*/
+
+    .keys > :nth-child(17){
+        width: 95%;
+    }
+
+    .keys > :nth-child(18){
+        width: 95%;
+    }
+}
+
+@media (min-width: 1024) and (min-width: 1114px) {
+    .banner{
+        flex-wrap: wrap;
+    }
+
+    .top{
+        margin-top: 130px;
+    }
+
+    .keys{
         padding-top: 20px;
         padding-bottom: 20px;
     }
@@ -233,10 +351,8 @@
         width: 60px;
         height: 64px;
         font-size: 20px;
-        gap: 10px;
     }
 
-    .btn.spec{
-        width: 135px;
-    }
+    
+
 }
