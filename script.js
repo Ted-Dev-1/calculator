@@ -1,4 +1,5 @@
 window.addEventListener('DOMContentLoaded', function() {
+    //theme toggle logic
 
     const slider = document.getElementById('slider');
     const toggle = document.getElementById('toggle');
@@ -27,4 +28,47 @@ window.addEventListener('DOMContentLoaded', function() {
     });
 
     applytheme(position);
+    //End of theme toggle logic
+
+
+    //caculator logic
+
+    function getFormatNum(num){
+        let n = Number(num);
+        let value = n.toLocaleString("en");
+        return value;
+    }
+
+    function printOutput(num){
+        if(num ==""){
+            document.getElementById("output-value").innerText = num;
+        }
+        else{
+            document.getElementById("output-value").innerText = getFormatNum(num);
+        }
+        
+    }
+
+
+    function getOutput(){
+        return document.getElementById("output-value").innerText;
+    }
+
+
+    function reverseNumFomart(num){
+        return Number(num.replace(/,/g,''));
+    }
+
+
+    let button = document.getElementsByClassName("btn");
+    for(let i = 0; i < button.length; i++){
+        button[i].addEventListener('click', function(){
+            let output = reverseNumFomart(getOutput());
+            
+            if(output != NaN){
+                output = output+this.id;
+                printOutput(output);
+            }
+        });
+    }
 });
