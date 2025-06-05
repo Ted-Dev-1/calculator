@@ -98,7 +98,7 @@
 }
 
 .calculator{
-    padding-top: 30px;
+    padding-top: 10px;
     width: 400px;
     height: 100%;
     /*height: 520px;*/
@@ -106,6 +106,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
 
 .top{
@@ -188,30 +189,31 @@
 .screen{
     width: 100%;
     background-color: var(--bg-color-2);
-    height: 120px;
+    height: 110px;
     margin-bottom: 15px;
     border: none;
     border-radius: 10px;
-}
-
-.screen .history-value{
-    text-align: right;
-    color: var(--history-color);
-    margin: 0 20px;
-    padding-top: 20px;
-}
-
-.screen .output-value{
-    color: var(--color-1);
-    text-align: right;
-    font-weight: 700;
     font-size: 250%;
     line-height: 100%;
     letter-spacing: -0.93px;
+    color: var(--color-1);
+    text-align: right;
+    font-weight: 700;
+    padding-right: 20px;
+    box-sizing: border-box;
+}
+
+
+
+.screen .output-value{
+    
+    
     margin: 10px 20px;
 }
 
 .keys{
+    /*width: 100%;*/
+    box-sizing: border-box;
     display: grid;
     background-color: var(--bg-color-3);
     grid-template-columns: repeat(4, 1fr);
@@ -301,6 +303,7 @@
 
     .screen{
         height: 100px;
+        width: 100%;
     }
     .screen .output-value{
         font-size: 40px;
@@ -311,17 +314,16 @@
     }
 
     .keys{
-        width: 100%;
 
-        padding-left: 10px;
-        padding-right: 10px;
+        padding-left: 8px;
+        padding-right: 5px;
         padding-top: 5px;
-        padding-bottom: 5px;
+        padding-bottom: 8px;
         gap: 10px;
     }
 
     .keys .btn{
-        width: 60px;
+        width: 65px;
         height: 54px;
         font-size: 20px;
         border-radius: 5px;
@@ -340,28 +342,4 @@
         font-size: 15px;
         width: 100%;
     }
-}
-
-@media (min-width: 1024) and (min-width: 1114px) {
-    .banner{
-        flex-wrap: wrap;
-    }
-
-    .top{
-        margin-top: 130px;
-    }
-
-    .keys{
-        padding-top: 20px;
-        padding-bottom: 20px;
-    }
-
-    .keys .btn{
-        width: 60px;
-        height: 64px;
-        font-size: 20px;
-    }
-
-    
-
 }

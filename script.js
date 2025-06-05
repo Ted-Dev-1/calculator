@@ -1,4 +1,4 @@
-window.addEventListener('DOMContentLoaded', function() {
+//window.addEventListener('DOMContentLoaded', function() {
     //theme toggle logic
 
     const slider = document.getElementById('slider');
@@ -30,10 +30,49 @@ window.addEventListener('DOMContentLoaded', function() {
     applytheme(position);
     //End of theme toggle logic
 
-
     //caculator logic
 
+    let output = document.getElementById("screen");
+            
+    function input(num){
+    output.value += num;
+    }
+
+
     function getFormatNum(num){
+        let n = Number(num);
+        let value = n.toLocaleString("en");
+        return value;
+    }
+
+    function calculate(){
+        try{
+            let ans = eval(output.value);
+            output.value = getFormatNum(ans);
+        }
+        catch(err){
+            alert("error");
+        }
+    }
+
+    function reset(){
+        output.value = "";
+    }
+
+    function del(){
+        output.value = output.value.slice(0,-1);
+    }
+
+   
+//});
+
+
+
+
+
+
+ 
+   /* function getFormatNum(num){
         let n = Number(num);
         let value = n.toLocaleString("en");
         return value;
@@ -71,4 +110,4 @@ window.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
-});
+    */

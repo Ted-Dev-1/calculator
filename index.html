@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+    <!--<script src="script.js"></script>-->
 </head>
 <body class="theme-1">
     <div class="banner">
@@ -31,32 +31,31 @@
 
             </div>
 
-            <div class="screen">
-                <p class="history-value" id="history-value">40</p>
-                <p class="output-value" id="output-value"></p>
-            </div>
+            <input type="text" class="screen" placeholder="0" id="screen">
 
             <div class="keys">
-                <button class="btn num" id="7">7</button>
-                <button class="btn num" id="8">8</button>
-                <button class="btn num" id="9">9</button>
-                <button class="btn opt" id="backspace">DEL</button>
-                <button class="btn num" id="4">4</button>
-                <button class="btn num" id="5">5</button>
-                <button class="btn num" id="6">6</button>
-                <button class="btn opt" id="+">+</button>
-                <button class="btn num" id="1">1</button>
-                <button class="btn num" id="2">2</button>
-                <button class="btn num" id="3">3</button>
-                <button class="btn opt" id="-">-</button>
-                <button class="btn num" id=".">.</button>
-                <button class="btn num" id="0">0</button>
-                <button class="btn opt" id="/">/</button>
-                <button class="btn opt" id="*">&times;</button>
-                <button class="btn opt" id="clear">RESET</button>
-                <button class="btn opt" id="=">=</button>
+                <button class="btn num" id="7" onclick="input(this.id)">7</button>
+                <button class="btn num" id="8" onclick="input(this.id)">8</button>
+                <button class="btn num" id="9" onclick="input(this.id)">9</button>
+                <button class="btn opt" id="backspace" onclick="del()">DEL</button>
+                <button class="btn num" id="4" onclick="input(this.id)">4</button>
+                <button class="btn num" id="5" onclick="input(this.id)">5</button>
+                <button class="btn num" id="6" onclick="input(this.id)">6</button>
+                <button class="btn opt" id="+" onclick="input(this.id)">+</button>
+                <button class="btn num" id="1" onclick="input(this.id)">1</button>
+                <button class="btn num" id="2" onclick="input(this.id)">2</button>
+                <button class="btn num" id="3" onclick="input(this.id)">3</button>
+                <button class="btn opt" id="-" onclick="input(this.id)">-</button>
+                <button class="btn num" id="." onclick="input(this.id)">.</button>
+                <button class="btn num" id="0" onclick="input(this.id)">0</button>
+                <button class="btn opt" id="/" onclick="input(this.id)">/</button>
+                <button class="btn opt" id="*" onclick="input(this.id)">&times;</button>
+                <button class="btn opt" id="clear" onclick="reset()">RESET</button>
+                <button class="btn opt" id="=" onclick="calculate()">=</button>
             </div>
         </div>
     </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
