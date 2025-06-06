@@ -1,11 +1,13 @@
-//window.addEventListener('DOMContentLoaded', function() {
     //theme toggle logic
-
     const slider = document.getElementById('slider');
     const toggle = document.getElementById('toggle');
 
     let position = parseInt(this.localStorage.getItem('theme-pos')) || 1;
 
+    const spot = document.querySelectorAll('.spot');
+    const spanPos = document.querySelectorAll('.position span');
+
+    //Theme apply fuction
     function applytheme(pos){
         document.body.classList.remove('theme-1', 'theme-2', 'theme-3');
         document.body.classList.add('theme-' + pos);
@@ -16,7 +18,29 @@
         localStorage.setItem('theme-pos', pos);
     }
 
-    slider.addEventListener('click', function() {
+    //Toggler for the repective spaces in the toggle slider
+    spot.forEach(function (spotElement){
+        spotElement.addEventListener('click', function(){
+            let posElem = parseInt(spotElement.getAttribute('data-pos'),10);
+            position = posElem;
+
+            applytheme(position);
+        } );
+    });
+
+    //Toggle for the positons 1,2,3
+    spanPos.forEach(function (spanElement){
+        spanElement.addEventListener('click', function(){
+            let spanElem = parseInt(spanElement.textContent,10);
+            position = spanElem;
+
+            applytheme(position);
+        } );
+    });
+
+    /* 
+     //Toggler for anytime you click abywhere on the slider
+     slider.addEventListener('click', function() {
         if(position < 3){
             position += 1;
         }
@@ -25,10 +49,13 @@
         }
 
         applytheme(position);
-    });
+     }); 
+    */
 
     applytheme(position);
+    
     //End of theme toggle logic
+
 
     //caculator logic
 
@@ -63,51 +90,5 @@
         output.value = output.value.slice(0,-1);
     }
 
-   
-//});
+    //End of calculator logic.
 
-
-
-
-
-
- 
-   /* function getFormatNum(num){
-        let n = Number(num);
-        let value = n.toLocaleString("en");
-        return value;
-    }
-
-    function printOutput(num){
-        if(num ==""){
-            document.getElementById("output-value").innerText = num;
-        }
-        else{
-            document.getElementById("output-value").innerText = getFormatNum(num);
-        }
-        
-    }
-
-
-    function getOutput(){
-        return document.getElementById("output-value").innerText;
-    }
-
-
-    function reverseNumFomart(num){
-        return Number(num.replace(/,/g,''));
-    }
-
-
-    let button = document.getElementsByClassName("btn");
-    for(let i = 0; i < button.length; i++){
-        button[i].addEventListener('click', function(){
-            let output = reverseNumFomart(getOutput());
-            
-            if(output != NaN){
-                output = output+this.id;
-                printOutput(output);
-            }
-        });
-    }
-    */

@@ -172,6 +172,28 @@
     top: 5px;
     transition: left 0.3s;
     cursor: pointer;
+    z-index: 1;
+}
+
+.spot{
+    width: calc(100% / 3);
+    position: absolute;
+    height: 100%;
+    background-color: transparent;
+    z-index: 2;
+    cursor: pointer;
+}
+
+.spot[data-pos="1"]{
+    left: 1px;
+}
+
+.spot[data-pos="2"]{
+    left: 23.5px;
+}
+
+.spot[data-pos="3"]{
+    left: 47px;
 }
 
 .pos-1{
@@ -246,11 +268,6 @@
     cursor: pointer;
 }
 
-/*.btn.spec{
-    grid-column: span 2;
-    width: 227px;
-}*/
-
 .keys > :nth-child(4){
     background-color: var(--bg-btn-2);
     color: var(--color-3);
@@ -292,9 +309,6 @@
 
 
 
-
-
-
 @media (max-width: 600px) {
     .calculator{
         width: 300px;
@@ -328,10 +342,6 @@
         font-size: 20px;
         border-radius: 5px;
     }
-
-    /*.btn.spec{
-        width: 135px;
-    }*/
 
     .keys > :nth-child(17){
         font-size: 15px;
