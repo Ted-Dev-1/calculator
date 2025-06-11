@@ -22,6 +22,7 @@
     --hover-1: #FFFFFE;
     --hover-2: #A2B2E1;
     --hover-3: #F96B5B;
+    --placeholder: #e8e2e2;
 }
 
 .theme-1{
@@ -42,6 +43,7 @@
     --hover-2: #A2B2E1;
     --hover-3: #F96B5B;
     --history-color: #848383;
+    --placeholder: #e8e2e2;
 }
 
 .theme-2{
@@ -62,6 +64,7 @@
     --hover-2: #62B5BC;
     --hover-3: #FF8A38;
     --history-color: #8b8b8b;
+    --placeholder: #5d626c;
 }
 
 .theme-3{
@@ -82,6 +85,7 @@
     --hover-2: #8631AF;
     --hover-3: #93FFF8;
     --history-color: #f5efd0;
+    --placeholder: #f3e277;
 }
 
 .body{
@@ -172,28 +176,6 @@
     top: 5px;
     transition: left 0.3s;
     cursor: pointer;
-    z-index: 1;
-}
-
-.spot{
-    width: calc(100% / 3);
-    position: absolute;
-    height: 100%;
-    background-color: transparent;
-    z-index: 2;
-    cursor: pointer;
-}
-
-.spot[data-pos="1"]{
-    left: 1px;
-}
-
-.spot[data-pos="2"]{
-    left: 23.5px;
-}
-
-.spot[data-pos="3"]{
-    left: 47px;
 }
 
 .pos-1{
@@ -215,23 +197,41 @@
     margin-bottom: 15px;
     border: none;
     border-radius: 10px;
-    font-size: 250%;
-    line-height: 100%;
-    letter-spacing: -0.93px;
-    color: var(--color-1);
-    text-align: right;
-    font-weight: 700;
-    padding-right: 20px;
     box-sizing: border-box;
 }
 
 
+.screen .history-value{
+ padding-top: 20px;
+ font-size: 20px;
+ text-align: right;
+ margin: 0 20px;
+ color: var(--history-color);
+ box-sizing: border-box;
+ background-color: transparent;
+ border: none;
+ width: 90%;
+}
+
 
 .screen .output-value{
-    
-    
+    width: 90%;
+    line-height: 100%;
+    letter-spacing: -0.93px;
+    color: var(--color-1);
+    font-size: 40px;
+    text-align: right;
     margin: 10px 20px;
+    box-sizing: border-box;
+    background-color: transparent;
+    border: none;
+    outline: none;
 }
+
+.screen .output-value::placeholder{
+    color: var(--placeholder);
+}
+
 
 .keys{
     /*width: 100%;*/
@@ -267,6 +267,11 @@
     background-color: var(--hover-1);
     cursor: pointer;
 }
+
+/*.btn.spec{
+    grid-column: span 2;
+    width: 227px;
+}*/
 
 .keys > :nth-child(4){
     background-color: var(--bg-btn-2);
@@ -309,6 +314,9 @@
 
 
 
+
+
+
 @media (max-width: 600px) {
     .calculator{
         width: 300px;
@@ -342,6 +350,10 @@
         font-size: 20px;
         border-radius: 5px;
     }
+
+    /*.btn.spec{
+        width: 135px;
+    }*/
 
     .keys > :nth-child(17){
         font-size: 15px;
