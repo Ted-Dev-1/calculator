@@ -176,7 +176,31 @@
     top: 5px;
     transition: left 0.3s;
     cursor: pointer;
+    z-index: 1;
 }
+
+
+.spot{
+    width: calc(100% / 3);
+    position: absolute;
+    height: 100%;
+    background-color: transparent;
+    z-index: 2;
+    cursor: pointer;
+}
+
+.spot[data-pos="1"]{
+    left: 1px;
+}
+
+.spot[data-pos="2"]{
+    left: 23.5px;
+}
+
+.spot[data-pos="3"]{
+    left: 47px;
+}
+
 
 .pos-1{
     left: 5px;

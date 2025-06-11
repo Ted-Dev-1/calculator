@@ -6,6 +6,10 @@
 
     let position = parseInt(this.localStorage.getItem('theme-pos')) || 1;
 
+    const spot = document.querySelectorAll('.spot');
+    const spanPos = document.querySelectorAll('.position span');
+
+    //Theme apply fuction
     function applytheme(pos){
         document.body.classList.remove('theme-1', 'theme-2', 'theme-3');
         document.body.classList.add('theme-' + pos);
@@ -16,18 +20,31 @@
         localStorage.setItem('theme-pos', pos);
     }
 
-    slider.addEventListener('click', function() {
-        if(position < 3){
-            position += 1;
-        }
-        else{
-            position = 1;
-        }
+    //Toggler for the repective spaces in the toggle slider
+    spot.forEach(function (spotElement){
+        spotElement.addEventListener('click', function(){
+            let posElem = parseInt(spotElement.getAttribute('data-pos'),10);
+            position = posElem;
 
-        applytheme(position);
+            applytheme(position);
+        } );
     });
 
+
+    //Toggle for the positons 1,2,3
+    spanPos.forEach(function (spanElement){
+        spanElement.addEventListener('click', function(){
+            let spanElem = parseInt(spanElement.textContent,10);
+            position = spanElem;
+
+            applytheme(position);
+        } );
+    });
+
+
     applytheme(position);
+
+
     //End of theme toggle logic
 
     //caculator logic
@@ -38,6 +55,13 @@
 
     function printHistory(num){
         document.getElementById("history-value").value = num;
+
+        if(document.getElementById("history-value").value !== ""){
+            document.getElementById("output-value").placeholder = "";
+        }
+        else if(document.getElementById("history-value").value == ""){
+            document.getElementById("output-value").placeholder = "399,981";
+        }
     }
     
 
@@ -90,7 +114,6 @@
             }
 
             else if(this.id =="backspace"){
-                
                 if(document.getElementById("output-value").value == "Error: Can't divide by 0!" ){
                     printOutput("");
                 }
@@ -103,6 +126,12 @@
             }
              //operator sign +-/*
             else{
+                    /*
+                if(document.getElementById("history-value").value !== ""){
+                    document.getElementById("output-value").placeholder = "";
+                }
+                   */
+
                 let output = getOutput();
                 let history = getHistory();
                 if(output == "" && history != ""){
@@ -117,7 +146,7 @@
 
                     if(this.id == "="){
 
-                        if (history.match(/\/0+(?!\d)/)) {
+                        if (history.match(/\/0+(?![\d.])/)) {
                             printHistory("");
                             document.getElementById("output-value").value = "Error: Can't divide by 0!";
                             return;
@@ -131,6 +160,9 @@
                     else{
                         history = history + this.id;
                         printHistory(history);
+
+                        //document.getElementById("output-value").placeholder = "";
+
                         printOutput("");
                     }
                 }
@@ -160,10 +192,3 @@
    
 //});
 
-
-/*
-// if(output != NaN){
-                output = output+this.id;
-                printOutput(output);
-           // }
-*/ 
