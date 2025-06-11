@@ -90,6 +90,11 @@
             }
 
             else if(this.id =="backspace"){
+                
+                if(document.getElementById("output-value").value == "Error: Can't divide by 0!" ){
+                    printOutput("");
+                }
+
                 let num = reverseNumFomart(getOutput()).toString();
                 if(num){
                     num = num.slice(0,-1);
